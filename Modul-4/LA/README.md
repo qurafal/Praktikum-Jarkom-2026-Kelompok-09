@@ -43,7 +43,8 @@ Konfigurasi meliputi pengaturan DHCP Client untuk jalur internet, pemasangan IP 
 ### 3.2. Fortinet FortiGate
 Firewall dikonfigurasi dengan menetapkan IP interface, mode statis, pembuatan Address Object, pengaturan Virtual IP (VIP) untuk *port forwarding* HTTP, serta pembuatan tiga Firewall Policy: `LAN_to_WAN`, `LAN_to_DMZ`, dan `WAN_to_DMZ_HTTP`.
 
-![Konfigurasi FortiGate Policy](images/placeholder_config_fortigate.png)
+![Konfigurasi FortiGate Interface](images/config_forti.png)
+![Konfigurasi FortiGate Policy](images/config_forti2.png)
 
 ### 3.3. Cisco Router
 Konfigurasi IP address pada interface ke arah LAN dan arah Firewall, serta penambahan *Gateway of Last Resort* (Default Route) menuju FortiGate.
@@ -104,9 +105,7 @@ Berikut adalah pembuktian skenario keamanan jaringan berdasarkan *Firewall Polic
 
 ## 5. Analisis dan Kesimpulan
 
-Berdasarkan hasil konfigurasi dan pengujian di atas, dapat disimpulkan bahwa implementasi arsitektur DMZ menggunakan Fortinet FortiGate telah berhasil memisahkan jaringan menjadi tiga zona dengan tingkat akses yang berbeda:
+Berdasarkan hasil konfigurasi dan pengujian di atas, dapat disimpulkan bahwa implementasi arsitektur DMZ menggunakan FortiGate telah berhasil memisahkan jaringan menjadi tiga zona dengan tingkat akses yang berbeda:
 1.  **Zona INSIDE (LAN):** Memiliki hak akses penuh menuju internet dan layanan server DMZ (dibuktikan dengan berhasilnya akses HTTP dan ping dari LAN ke DMZ). Lalu lintas diterjemahkan menggunakan NAT saat menuju internet.
 2.  **Zona OUTSIDE (WAN/Internet):** Sangat dibatasi. Client WAN tidak dapat menjangkau jaringan LAN internal maupun melakukan ping langsung ke IP asli DMZ, sehingga jaringan internal aman dari *scanning* atau serangan luar.
 3.  **Zona DMZ (Server Publik):** Layanan publik tetap dapat diakses dari luar (WAN) memanfaatkan fitur **Virtual IP (VIP) / Port Forwarding** di mana publikasi hanya diizinkan melalui protokol HTTP ke IP publik Firewall (10.10.10.2).
-
-Konfigurasi ini memenuhi standar keamanan jaringan dasar, meminimalisir permukaan serangan eksternal sembari mempertahankan fungsionalitas operasional jaringan lokal.
