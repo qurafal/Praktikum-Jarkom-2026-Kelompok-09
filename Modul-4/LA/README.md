@@ -10,8 +10,8 @@
 
 ## 1. Topologi Jaringan
 
-![Topologi Jaringan PNETLab](images/placeholder_topologi.png)
-*(Catatan: Gambar di atas adalah hasil implementasi topologi pada workspace PNETLab)*
+![Topologi Jaringan PNETLab](images/topologi.png)
+
 
 ---
 
@@ -38,7 +38,7 @@
 ### 3.1. MikroTik ISP
 Konfigurasi meliputi pengaturan DHCP Client untuk jalur internet, pemasangan IP address statis, konfigurasi NAT Masquerade, serta Static Route menuju LAN dan DMZ via FortiGate.
 
-![Konfigurasi MikroTik](images/placeholder_config_mikrotik.png)
+![Konfigurasi MikroTik](images/config_mikrotik.png)
 
 ### 3.2. Fortinet FortiGate
 Firewall dikonfigurasi dengan menetapkan IP interface, mode statis, pembuatan Address Object, pengaturan Virtual IP (VIP) untuk *port forwarding* HTTP, serta pembuatan tiga Firewall Policy: `LAN_to_WAN`, `LAN_to_DMZ`, dan `WAN_to_DMZ_HTTP`.
