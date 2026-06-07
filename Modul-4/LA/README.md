@@ -49,12 +49,13 @@ Firewall dikonfigurasi dengan menetapkan IP interface, mode statis, pembuatan Ad
 ### 3.3. Cisco Router
 Konfigurasi IP address pada interface ke arah LAN dan arah Firewall, serta penambahan *Gateway of Last Resort* (Default Route) menuju FortiGate.
 
-![Konfigurasi Cisco Router](images/placeholder_config_cisco.png)
+![Konfigurasi Cisco Router](images/config_cisco.png)
 
 ### 3.4. TinyCore Linux (Client LAN & WAN)
 Pengaturan IP Address, Default Gateway, dan DNS Server melalui CLI menggunakan `ifconfig` dan `route add`, lalu disimpan permanen menggunakan perintah `filetool.sh -b`.
 
-![Konfigurasi TinyCore](images/placeholder_config_tinycore.png)
+![Konfigurasi TinyCore](images/config_client_lan.png)
+![Konfigurasi TinyCore](images/config_client_wan.png)
 
 ### 3.5. Ubuntu Server DMZ
 Pengaturan IP statis menggunakan Netplan, instalasi layanan Nginx Web Server, dan modifikasi file `index.html` sesuai format `Tumod_4_DMZ_Firewall_[No.Kel]-[Nama]`.
@@ -68,10 +69,10 @@ Pengaturan IP statis menggunakan Netplan, instalasi layanan Nginx Web Server, da
 Berikut adalah pembuktian skenario keamanan jaringan berdasarkan *Firewall Policy* yang telah diterapkan:
 
 **1. Pengujian Client LAN ke Gateway Cisco**
-![Ping LAN to Cisco](images/lan_to_cisco.png)
+![Ping LAN to Cisco](images/lan-gateway.png)
 
 **2. Pengujian Client LAN ke FortiGate**
-![Ping LAN to FortiGate](images/lan_to_fortigate.png)
+![Ping LAN to FortiGate](images/lan-forti.png)
 
 **3. Pengujian Client LAN ke Server DMZ**
 ![Ping LAN to DMZ](images/lan_to_dmz.png)
@@ -80,10 +81,10 @@ Berikut adalah pembuktian skenario keamanan jaringan berdasarkan *Firewall Polic
 ![Akses Web LAN to DMZ](images/lan_access_dmz.png)
 
 **5. Pengujian Client WAN Ping ke MikroTik ISP**
-![Ping WAN to MikroTik](images/client_wan_to_mikrotik.png)
+![Ping WAN to MikroTik](images/wan_gateway.png)
 
 **6. Pengujian Client WAN Ping ke FortiGate**
-![Ping WAN to FortiGate](images/client_wan_to_fortigate.png)
+![Ping WAN to FortiGate](images/wan_forti.png)
 
 **7. Pengujian Client WAN Akses HTTP VIP FortiGate (10.10.10.2)**
 *(Harus memunculkan halaman web server DMZ)*
@@ -91,7 +92,7 @@ Berikut adalah pembuktian skenario keamanan jaringan berdasarkan *Firewall Polic
 
 **8. Pengujian Client WAN Ping ke Client LAN**
 *(Diharapkan: Request Timed Out / Dropped oleh Firewall)*
-![Ping WAN to LAN](images/wan_ping_lan.png)
+![Ping WAN to LAN](images/lan_wan.png)
 
 **9. Pengujian Client WAN Ping ke IP Asli DMZ (192.168.20.10)**
 *(Diharapkan: Request Timed Out / Dropped oleh Firewall karena harus via VIP)*
