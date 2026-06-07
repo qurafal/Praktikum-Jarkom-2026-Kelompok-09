@@ -60,7 +60,8 @@ Pengaturan IP Address, Default Gateway, dan DNS Server melalui CLI menggunakan `
 ### 3.5. Ubuntu Server DMZ
 Pengaturan IP statis menggunakan Netplan, instalasi layanan Nginx Web Server, dan modifikasi file `index.html` sesuai format `Tumod_4_DMZ_Firewall_[No.Kel]-[Nama]`.
 
-![Konfigurasi Ubuntu Server](images/placeholder_config_ubuntu.png)
+![Konfigurasi Ubuntu Server](images/config_dmz.png)
+![Konfigurasi Ubuntu Server](images/config_dmz2.png)
 
 ---
 
@@ -75,10 +76,10 @@ Berikut adalah pembuktian skenario keamanan jaringan berdasarkan *Firewall Polic
 ![Ping LAN to FortiGate](images/lan-forti.png)
 
 **3. Pengujian Client LAN ke Server DMZ**
-![Ping LAN to DMZ](images/lan_to_dmz.png)
+![Ping LAN to DMZ](images/lan_server.png)
 
 **4. Pengujian Client LAN Akses HTTP DMZ**
-![Akses Web LAN to DMZ](images/lan_access_dmz.png)
+![Akses Web LAN to DMZ](images/lan_dmzz.png)
 
 **5. Pengujian Client WAN Ping ke MikroTik ISP**
 ![Ping WAN to MikroTik](images/wan_gateway.png)
@@ -88,7 +89,7 @@ Berikut adalah pembuktian skenario keamanan jaringan berdasarkan *Firewall Polic
 
 **7. Pengujian Client WAN Akses HTTP VIP FortiGate (10.10.10.2)**
 *(Harus memunculkan halaman web server DMZ)*
-![Akses Web WAN to VIP DMZ](images/client_wan_access_dmz.png)
+![Akses Web WAN to VIP DMZ](images/wan_dmzz.png)
 
 **8. Pengujian Client WAN Ping ke Client LAN**
 *(Diharapkan: Request Timed Out / Dropped oleh Firewall)*
@@ -96,11 +97,11 @@ Berikut adalah pembuktian skenario keamanan jaringan berdasarkan *Firewall Polic
 
 **9. Pengujian Client WAN Ping ke IP Asli DMZ (192.168.20.10)**
 *(Diharapkan: Request Timed Out / Dropped oleh Firewall karena harus via VIP)*
-![Ping WAN to IP Asli DMZ](images/wan_ping_dmz.png)
+![Ping WAN to IP Asli DMZ](images/wan_server.png)
 
 **10. Pengujian Server DMZ Ping ke Client LAN**
 *(Diharapkan: Berhasil / Reply)*
-![Ping DMZ to LAN](images/dmz_ping_lan.png)
+![Ping DMZ to LAN](images/dmz_lan.png)
 
 ---
 
