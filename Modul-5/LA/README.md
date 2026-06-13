@@ -146,6 +146,9 @@
 
 
 1. Screenshot hasil ping jalur WAN antar-FortiGate.
+![](images/pingwanjkt-sby.png)
+![](images/pingwansby-jkt.png)
+
 
 2. Screenshot hasil ping antar-IP IP Tunnel (172.16.0.1 <-> 172.16.0.2).
 
