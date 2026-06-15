@@ -151,33 +151,40 @@
 
 
 2. Screenshot hasil ping antar-IP IP Tunnel (172.16.0.1 <-> 172.16.0.2).
+![](images/pinggrejkt-sby.png)
+![](images/pinggresby-jkt.png)
+4. Screenshot hasil perintah get router info ospf neighbor (memastikan status Full).
+![](images/ospfneighborjkt.png)
+![](images/ospfneighborsby.png)
+6. Screenshot hasil perintah get router info routing-table ospf.
+![](images/ospftablejkt.png)
+![](images/ospftablesby.png)
+8. Screenshot hasil ping dari Client Jakarta ke Client Surabaya.
+![](images/pingclientjkt-sby.png)
 
-3. Screenshot hasil perintah get router info ospf neighbor (memastikan status Full).
-
-4. Screenshot hasil perintah get router info routing-table ospf.
-
-5. Screenshot hasil ping dari Client Jakarta ke Client Surabaya.
-
-6. Screenshot hasil ping dari Client Surabaya ke Client Jakarta.
+10. Screenshot hasil ping dari Client Surabaya ke Client Jakarta.
+![](images/pingclientsby-jkt.png)
 
 ## Tugas Modul 10 - Pengujian Akhir
 
 1. Screenshot IP DHCP Client Jakarta (VLAN 10).
-
+![](images/ipvlan10jkt.png)
 2. Screenshot IP DHCP Client Surabaya (VLAN 30).
-
+![](images/ipvlan30sby.png)
 3. Screenshot ping internet (8.8.8.8) dari sisi Jakarta.
-
+![](images/pingclientjkt-internet.png)
 4. Screenshot ping internet (8.8.8.8) dari sisi Surabaya.
-
+![](images/pingclientsby-internet.png)
 5. Screenshot ping antar-site (Contoh: Klien VLAN 10 Jakarta ke Klien VLAN 40 Surabaya).
-
+![](images/pingantarsite.png)
 6. Screenshot sukses mengakses Nginx Web Server Jakarta (192.168.60.10) dari browser/PC Client Surabaya.
-
+![](images/akseswebserverjktdarisurabaya.png)
 7. Screenshot tabel routing OSPF akhir.
-
-8. Dokumen Tambahan: Analisis singkat mengenai jalur pergerakan traffic dari Jakarta ke Surabaya.
-
+![](images/tabelospfjkt.png)
+![](images/tabelospfsby.png)
+9. Dokumen Tambahan: Analisis singkat mengenai jalur pergerakan traffic dari Jakarta ke Surabaya.
+  Apabila misalnya ada client di surabaya melakukan ping ke Jakarta maka berikut adalah alur trafficnya:
+Paket akan dikirim ke mikrotik Surabaya, tapi karena network tujuan tidak ada di routing table lokal, maka paket akan diteruskan ke Fortigate Surabaya melalui port2. Setelah itu, Fortigate akan melakukan lookup routing table dan mencari ospf routing yang akan mengarahkan paket ke Fortigate Jakarta melalui GRE-Tunnel. GRE akan mengenkapsulasi paket dan meneruskannya melalui WAN ke mikrotik ISP yang akan meneruskannya ke Fortigate Jakarta. Fortigate akan melakukan de-enkapsulasi paket lalu melakukan lookup routing table untuk mencari network tujuan. Paket akan diteruskan ke Cisco Router Jakarta atau Mikrotik Jakarta berdasarkan VRRP Masternya, lalu ke switch Jakarta melalui trunk sebelum ke tujuan akhir.
 
 
 
