@@ -1,4 +1,11 @@
 
+# Laporan Tugas Modul 5: 
+
+**Kelompok:** 9-Access Point
+**Anggota Kelompok:**
+1. [Faruq Awliya Labiib] - [5024241020]
+2. [Riggy Fahmi Abyan] - [5024241045]
+3. [Dzaky Haady] - [5024241076]
 
 ## Tugas Modul 1 - Cisco Switch Jakarta
 1. SS Topologi Switch Jakarta
@@ -183,6 +190,7 @@
 ![](images/tabelospfjkt.png)
 ![](images/tabelospfsby.png)
 9. Dokumen Tambahan: Analisis singkat mengenai jalur pergerakan traffic dari Jakarta ke Surabaya.
+
   Apabila misalnya ada client di surabaya melakukan ping ke Jakarta maka berikut adalah alur trafficnya:
 Paket akan dikirim ke mikrotik Surabaya, tapi karena network tujuan tidak ada di routing table lokal, maka paket akan diteruskan ke Fortigate Surabaya melalui port2. Setelah itu, Fortigate akan melakukan lookup routing table dan mencari ospf routing yang akan mengarahkan paket ke Fortigate Jakarta melalui GRE-Tunnel. GRE akan mengenkapsulasi paket dan meneruskannya melalui WAN ke mikrotik ISP yang akan meneruskannya ke Fortigate Jakarta. Fortigate akan melakukan de-enkapsulasi paket lalu melakukan lookup routing table untuk mencari network tujuan. Paket akan diteruskan ke Cisco Router Jakarta atau Mikrotik Jakarta berdasarkan VRRP Masternya, lalu ke switch Jakarta melalui trunk sebelum ke tujuan akhir.
 
